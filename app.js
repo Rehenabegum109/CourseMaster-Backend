@@ -31,8 +31,9 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "http://localhost:3000",
+     "https://course-master-frontend-ten.vercel.app",
       "https://course-master-front-end.vercel.app",
+
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
