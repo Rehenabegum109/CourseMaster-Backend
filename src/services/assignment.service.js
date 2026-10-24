@@ -48,7 +48,11 @@ const getAssignmentStats = async (studentId, courseId) => {
   }
 
   // Calculate average from graded assignments only
-  const gradedSubmissions = submissions.filter((s) => s.grade !== null && s.grade !== undefined);
+ const gradedSubmissions = submissions.filter(
+  (s) => s.status === "reviewed" &&
+    typeof s.grade === "number" &&
+    Number.isFinite(s.grade)
+);
   const average = gradedSubmissions.length > 0
     ? Math.round(gradedSubmissions.reduce((sum, s) => sum + s.grade, 0) / gradedSubmissions.length)
     : 0;
